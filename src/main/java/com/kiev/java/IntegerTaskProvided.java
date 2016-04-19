@@ -1,14 +1,18 @@
 package com.kiev.java;
 
 
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class IntegerTaskProvided implements TaskProvider<Integer> {
 
 
     private List<Task<Integer>> tasks = new ArrayList<>();
 
+    @PostConstruct
     public void init() {
         tasks.add(new AddTask(1, -2));
         tasks.add(new AddTask(1, -2));
